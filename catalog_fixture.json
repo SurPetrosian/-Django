@@ -1,0 +1,65 @@
+[
+{
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+        "name": "Автомобили",
+        "description": ""
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Мотоциклы",
+        "description": ""
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+        "name": "Овощи",
+        "description": "Овощи, сочные части травянистых, иногда полукустарниковых растений, употребляемые человеком в пищу."
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "name": "BMW X7",
+        "description": "Немецкая марка автомобилей",
+        "image": "",
+        "category": 1,
+        "price": 10500000,
+        "created_at": "2025-03-12",
+        "updated_at": "2025-03-12"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "Volkswagen Golf",
+        "description": "",
+        "image": "",
+        "category": 1,
+        "price": 2500000,
+        "created_at": "2025-03-12",
+        "updated_at": "2025-03-12"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "name": "Suzuki rx1200",
+        "description": "",
+        "image": "",
+        "category": 2,
+        "price": 1000000,
+        "created_at": "2025-03-12",
+        "updated_at": "2025-03-12"
+    }
+}
+]
