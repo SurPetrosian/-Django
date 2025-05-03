@@ -1,0 +1,23 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}Главная - Свежий вкус{% endblock %}
+
+{% block content %}
+    <!-- Товары -->
+    <h2 class="mb-4 text-center">Наши товары</h2>
+    <div class="row g-4">
+        <!-- Цикл для отображения товаров -->
+        {% for product in products %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description|slice:":100" }}{% if product.description|length > 100 %}...{% endif %}</p>
+                        <button class="btn btn-success" onclick="addToCart('{{ product.name }}')">В корзину</button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
