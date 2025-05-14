@@ -1,0 +1,13 @@
+{% block content %}
+  <h1>Блог</h1>
+  <a href="{% url 'blog:create' %}">➕ Создать статью</a>
+  <ul>
+    {% for blog in blogs %}
+      <li>
+        <a href="{% url 'blog:detail' blog.pk %}">{{ blog.header }}</a> — {{ blog.created_at }}
+      </li>
+    {% empty %}
+      <li>Нет опубликованных статей.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

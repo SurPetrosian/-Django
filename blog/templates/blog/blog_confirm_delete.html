@@ -1,0 +1,9 @@
+{% block content %}
+  <h1>Удалить статью "{{ blog.header }}"?</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">🗑 Подтвердить удаление</button>
+    <a href="{% url 'blog:detail' blog.pk %}">Отмена</a>
+  </form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% block content %}
+  <h1>{% if form.instance.pk %}Редактировать{% else %}Создать{% endif %} статью</h1>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">💾 Сохранить</button>
+  </form>
+
+  <a href="{% url 'blog:list' %}">← Назад</a>
+{% endblock %}

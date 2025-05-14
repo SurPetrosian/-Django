@@ -1,0 +1,15 @@
+{% block content %}
+  <h1>{{ blog.header }}</h1>
+
+  {% if blog.image %}
+    <img src="{{ blog.image.url }}" alt="Превью" width="300">
+  {% endif %}
+
+  <p><strong>Дата публикации:</strong> {{ blog.created_at }}</p>
+  <p>{{ blog.content }}</p>
+  <p><strong>Просмотров:</strong> {{ blog.number_of_views }}</p>
+
+  <a href="{% url 'blog:update' blog.pk %}">✏️ Редактировать</a> |
+  <a href="{% url 'blog:delete' blog.pk %}">🗑 Удалить</a> |
+  <a href="{% url 'blog:list' %}">← Назад</a>
+{% endblock %}
