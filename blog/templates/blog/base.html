@@ -1,10 +1,89 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>{% block title %}Автоблог{% endblock %}</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- AOS (анимации при прокрутке) -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Собственные стили -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: #f8f9fa;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        footer {
+            flex-shrink: 0;
+            color: #ffffff !important;
+        }
+
+        /* Заголовок */
+        header h1,
+        header p {
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+        }
+    </style>
 </head>
 <body>
-$END$
+
+    <!-- Заголовок с фото -->
+    <header class="bg-dark text-white text-center py-10" style="background-image: url('{% static 'img/car_banner.jpg' %}'); background-size: cover; background-position: center;">
+        <div class="bg-dark bg-opacity-50 py-5">
+            <h1 class="display-4" data-aos="fade-down">Автоблог</h1>
+            <p class="lead" data-aos="fade-up">Статьи, обзоры и всё про автомобили</p>
+        </div>
+    </header>
+
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="/">🏁 Главная</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'blog:list' %}">📝 Блог</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacts/">📩 Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Контент страницы -->
+    <main class="container my-5" data-aos="fade-in">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-center py-3 mt-auto" style="color: #ffffff;">
+    <p style="color: #ffffff;">© {% now "Y" %}, Автоблог. Все права защищены.</p>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>AOS.init();</script>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

@@ -1,13 +1,18 @@
+{% extends 'blog/base.html' %}
+
 {% block content %}
   <h1>Блог</h1>
-  <a href="{% url 'blog:create' %}">➕ Создать статью</a>
-  <ul>
+
+  <a href="{% url 'blog:create' %}" class="btn btn-primary">➕ Создать статью</a>
+
+  <div class="blog-list mt-4">
     {% for blog in blogs %}
-      <li>
-        <a href="{% url 'blog:detail' blog.pk %}">{{ blog.header }}</a> — {{ blog.created_at }}
-      </li>
-    {% empty %}
-      <li>Нет опубликованных статей.</li>
+      <div class="blog-card mb-4">
+        <h2 class="blog-card-title">
+          <a href="{% url 'blog:detail' blog.pk %}">{{ blog.header }}</a>
+        </h2>
+        <p class="text-muted">Дата: {{ blog.created_at }}</p>
+      </div>
     {% endfor %}
-  </ul>
+  </div>
 {% endblock %}

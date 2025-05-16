@@ -20,11 +20,3 @@ class ProductDetailView(DetailView):
     context_object_name = 'product'
     pk_url_kwarg = 'product_id'  # соответствие параметру из URL
 
-
-# def products(request, product_id):
-#     product = get_object_or_404(Product, id=product_id)
-#     context = {
-#         'product': product
-#
-#     }
-#     return render(request,'catalog/products.html', context=context)

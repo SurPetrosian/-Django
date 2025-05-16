@@ -43,6 +43,10 @@ class BlogCreateView(CreateView):
     template_name = 'blog/blog_form.html'
     success_url = reverse_lazy('blog:list')
 
+    def form_invalid(self, form):
+        print(form.errors)  # Покажет ошибки валидации в терминале
+        return super().form_invalid(form)
+
 
 class BlogUpdateView(UpdateView):
     model = Blog
