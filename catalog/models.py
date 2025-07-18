@@ -22,9 +22,8 @@ class Product(models.Model):
     image = models.ImageField( verbose_name='изображение',null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     price = models.BigIntegerField(verbose_name='цена')
-    created_at = models.DateField(verbose_name='дата создания')
-    updated_at = models.DateField(verbose_name='дата последнего изменения',null=True)
-
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='дата создания')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='дата последнего изменения')
 
     def __str__(self):
         return self.name
