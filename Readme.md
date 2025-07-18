@@ -1,5 +1,5 @@
-<h1 align="center">🚀 Знакомство с Django</h1>
-<p align="center"><a href="https://github.com/SurPetrosian" target="_blank">https://github.com/SurPetrosian</a></p>
+# 🚀 Знакомство с Django
+[GitHub профайл](https://github.com/SurPetrosian)
 
 ---
 
@@ -16,8 +16,8 @@
 
 ---
 
-<h1 align="center">🗃 Работа с ORM в Django</h1>
-<p align="center"><a href="https://github.com/SurPetrosian" target="_blank">https://github.com/SurPetrosian</a></p>
+# 🗃 Работа с ORM в Django
+[GitHub профайл](https://github.com/SurPetrosian)
 
 ---
 
@@ -36,7 +36,6 @@
 5. ✅ Созданы **фикстуры** для моделей `Product` и `Category`.
 6. ✅ Реализована **кастомная команда управления** для добавления тестовых продуктов.
 
-
 ---
 
 ### 🔗 Полезные ссылки
@@ -45,13 +44,10 @@
 - 🐍 [Poetry — Dependency Management for Python](https://python-poetry.org/)
 - 🌐 https://github.com/SurPetrosian
 
-
 ---
 
-<h1 align="center">📦 Шаблонизация</h1>
-<p align="center"><a href="https://github.com/SurPetrosian" target="_blank">https://github.com/SurPetrosian</a></p>
-
-
+# 📦 Шаблонизация
+[GitHub профайл](https://github.com/SurPetrosian)
 
 ## Описание
 
@@ -60,7 +56,7 @@
 ## Выполненные задачи
 
 ### ✅ Задание 1: Страница товара
-- Создан контроллер (`products) и шаблон (`products.html`) для отображения полной информации о товаре.
+- Создан контроллер (`products`) и шаблон (`products.html`) для отображения полной информации о товаре.
 - Отображаются название, описание, изображение и другие характеристики товара.
 
 ### ✅ Задание 2: Главная страница
@@ -69,12 +65,12 @@
 
 ### ✅ Задание 3: Базовый шаблон и меню
 - Создан **базовый шаблон** (`base.html`) с общими элементами страницы: шапка, подвал, стили.
-- Выделен **подшаблоны** (`footer.html`, `header.html`), включаемый в другие шаблоны с помощью `{% include %}`.
+- Выделены **подшаблоны** (`footer.html`, `header.html`), включаемые в другие шаблоны с помощью `{% include %}`.
 
 ---
 
-<h1 align="center">📦 FBV и CBV</h1>
-<p align="center"><a href="https://github.com/SurPetrosian" target="_blank">https://github.com/SurPetrosian</a></p>
+# 📦 FBV и CBV 
+[GitHub профайл](https://github.com/SurPetrosian)
 
 ### ✅ Задание 1: Перевод FBV → CBV
 
@@ -85,19 +81,31 @@
 
 - Создано новое приложение *blog*, добавлено в **INSTALLED_APPS**.
 - Создана модель Blog со следующими полями:
-- - заголовок 
-- - содержимое
-- - изображение (превью)
-- - дата создания
-- - признак публикации (is_published)
-- - количество просмотров
+  - заголовок 
+  - содержимое
+  - изображение (превью)
+  - дата создания
+  - признак публикации (is_published)
+  - количество просмотров
 - Реализован полный CRUD для модели **Blog** с использованием CBV (ListView, DetailView, CreateView, UpdateView, DeleteView).
 
 ### ✅ Задание 3: Логика обработки и отображения
-- 🔢 При открытии статьи увеличивается счётчик просмотров (number_of_views), реализовано через get_object() в DetailView.
-- ✅ В списке блогов отображаются только опубликованные статьи (фильтрация реализована в get_queryset()).
-- 🔄 После редактирования статьи происходит перенаправление на страницу просмотра этой статьи (через get_success_url() в UpdateView).
+- 🔢 При открытии статьи увеличивается счётчик просмотров (number_of_views), реализовано через `get_object()` в `DetailView`.
+- ✅ В списке блогов отображаются только опубликованные статьи (фильтрация реализована в `get_queryset()`).
+- 🔄 После редактирования статьи происходит перенаправление на страницу просмотра этой статьи (через `get_success_url()` в `UpdateView`).
 - 📨 Если статья набрала 100 просмотров — автоматически отправляется email-уведомление.
+
+# 📦 Формы
+
+- Реализован **CRUD**-интерфейс для модели `Product` с использованием `django.forms`.
+- ❌ Введена валидация названия и описания продукта: запрещено использовать следующие слова (без учёта регистра):
+
+  **`казино, криптовалюта, крипта, биржа, дешево, бесплатно, обман, полиция, радар`**
+
+  При вводе любого из этих слов — форма возвращает ошибку.
+
+- 💰 Реализована кастомная валидация цены (`clean_price`): цена не может быть отрицательной.
+- 🎨 Формы стилизованы через метод `__init__` — все поля получили CSS-классы, соответствующие общей стилистике проекта.
 
 ---
 
@@ -107,65 +115,3 @@
    ```bash
    git clone https://github.com/yourusername/yourproject.git
    cd yourproject
-   ```
-
-2. Установите Poetry (если ещё не установлен):  
-   [https://python-poetry.org/docs/#installation](https://python-poetry.org/docs/#installation)
-
-3. Установите зависимости:
-   ```bash
-   poetry install
-   ```
-
-4. Активируйте виртуальное окружение:
-   ```bash
-   poetry shell
-   ```
-
-5. Выполните миграции и запустите сервер:
-   ```bash
-   python manage.py migrate
-   python manage.py runserver
-   ```
-
-## Структура проекта
-```
-project/
-│
-├── templates/
-│   ├── base.html
-│   ├── partials/
-│   │   └── main_menu.html
-│   ├── product_detail.html
-│   └── index.html
-│
-├── static/
-│   └── styles.css
-│
-├── products/
-│   ├── views.py
-│   ├── models.py
-│   └── urls.py
-│
-├── manage.py
-├── pyproject.toml
-└── project_name/
-    └── settings.py
-```
-
-## Технологии
-
-- Язык: **Python**
-- Фреймворк: **Django**
-- Система шаблонов: **Django Templates**
-- Управление зависимостями: **Poetry**
-- HTML / CSS (с поддержкой шаблонных тегов Django)
-
-
-### 🙋‍♂️ Автор
-
-**Suren Petrosian**  
-📧 Email: sur141097@gmail.com  
-🌐 Сайт: https://github.com/SurPetrosian
-
----
